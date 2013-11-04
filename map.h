@@ -12,9 +12,9 @@ class map
         std::vector<Point> InitialPoints;
         map();
         virtual ~map();
+        std::deque<Point> Carte;
     protected:
     private:
-        std::deque<Point> Carte;
 };
 
 #endif // MAP_H
