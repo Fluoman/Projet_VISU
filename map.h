@@ -9,11 +9,11 @@ class map
     public:
         float shepard(Point &P, unsigned int i);
         float hardy(Point &P, unsigned int i);
+        std::vector<Point> InitialPoints;
         map();
         virtual ~map();
     protected:
     private:
-        std::vector<Point> InitialPoints;
         std::deque<Point> Carte;
 };
 

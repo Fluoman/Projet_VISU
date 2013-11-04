@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1383573373 source:d:\seb\scribouillages\autres\compil\projet_visu\main.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+	<cstdlib>
+	<deque>
+	"point.h"
+	"map.h"
+
+1383559032 source:d:\seb\scribouillages\autres\compil\projet_visu\point.cpp
+	"point.h"
+	<iostream>
+
+1383571797 d:\seb\scribouillages\autres\compil\projet_visu\point.h
+	<cmath>
+	<deque>
+
+1383573218 d:\seb\scribouillages\autres\compil\projet_visu\map.h
+	<vector>
+	<deque>
+	"point.h"
+
+1383572747 source:d:\seb\scribouillages\autres\compil\projet_visu\map.cpp
+	"map.h"
+	"point.h"
+

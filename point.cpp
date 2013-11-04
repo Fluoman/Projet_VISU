@@ -30,6 +30,6 @@ float Point::distance(Point & P) {
 
 float Point::distanceEuclidienne(Point & P) {
 
-	return sqrt(pow((self->latitude-P.latitude),2) + pow((self->longitude-P.longitude),2) ); 
+	return sqrt(pow((this->latitude-P.latitude),2) + pow((this->longitude-P.longitude),2) );
 
 }

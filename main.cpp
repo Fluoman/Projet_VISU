@@ -4,19 +4,18 @@
 #include <cstdlib>
 #include <deque>
 #include "point.h"
+#include "map.h"
 
 using namespace std;
 
-int main()
+int parser()
 {
-    cout << "Hello world!" << endl;
-    static string directory = "D:\\Seb\\Scribouillages\\Autres\\Compil\\Projet_VISU\\";
     string nom_stations = "FichierDesSitesDeAirRhoneAlpes.csv";
     string val_stations = "ParticulePM10Aout2012.csv";
     string commun = "common.csv";
-    nom_stations = directory+nom_stations;
-    val_stations = directory+val_stations;
-    commun = directory+commun;
+    nom_stations = nom_stations;
+    val_stations = val_stations;
+    commun = commun;
     static ifstream flux_coord;
     static ifstream flux_val;
     static ofstream flux_out;
@@ -107,7 +106,43 @@ int main()
     flux_coord.close();
     flux_out.close();
     flux_val.close();
-
-    cout << "Hello world!" << endl;
     return 0;
 }
+
+int main ()
+    {
+        string entree = "test_interpol.txt";
+        string sortie = "sortie_interpol.txt";
+        static ifstream flux_entree;
+        static ofstream flux_sortie;
+
+        flux_entree.open(entree.c_str());
+        flux_sortie.open(sortie.c_str());
+
+        map Carte;
+        float minX, minY, maxX, maxY;
+        for (unsigned int i = 0; i < Carte.InitialPoints.size(); i++){
+            if (i==0) {
+                minX = Carte.InitialPoints[i].getLat();
+                maxX = Carte.InitialPoints[i].getLat();
+                minY = Carte.InitialPoints[i].getLon();
+                maxY = Carte.InitialPoints[i].getLon();
+            } else {
+                if (Carte.InitialPoints[i].getLat() < minX)
+                    minX = Carte.InitialPoints[i].getLat();
+                if (Carte.InitialPoints[i].getLat() > maxX)
+                    maxX = Carte.InitialPoints[i].getLat();
+
+
+                if (Carte.InitialPoints[i].getLon() < minY)
+                    minY = Carte.InitialPoints[i].getLon();
+                if (Carte.InitialPoints[i].getLon() > maxY)
+                    maxY = Carte.InitialPoints[i].getLon();
+            }
+        }
+        cout << "minX; maxX; minY; maxY: " << minX << maxX << minY << maxY << endl;
+
+        flux_entree.close();
+        flux_sortie.close();
+        return 0;
+    }
