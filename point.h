@@ -13,6 +13,7 @@ float getLat();
 float getLon();
 float getValue(unsigned int indice);
 float distance(Point & P);
+float distanceEuclidienne(Point & P);
 Point(float longitude, float latitude);
 };
 
