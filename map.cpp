@@ -7,14 +7,6 @@ using namespace Eigen;
 
 map::map()
 {
-	InitialPoints.push_back(Point(0,0));
-	InitialPoints.push_back(Point(0,4));
-	InitialPoints.push_back(Point(4,0));
-	InitialPoints.push_back(Point(4,4));
-	InitialPoints.push_back(Point(2,2));
-	for (int i=0;i<5;i++) {
-		InitialPoints[i].value.push_back(float(int(i/4)));
-	}
 }
 
 float map::shepard(Point &P, unsigned int i) {
