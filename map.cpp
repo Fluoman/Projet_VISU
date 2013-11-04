@@ -8,7 +8,7 @@ map::map()
 	InitialPoints.push_back(Point(4,4));
 	InitialPoints.push_back(Point(2,2));
 	for (int i=0;i<5;i++) {
-		InitialPoints[i].value.push_back(float(int(i/5)));
+		InitialPoints[i].value.push_back(float(int(i/4)));
 	}
 }
 
