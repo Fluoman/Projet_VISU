@@ -1,1 +1,2 @@
 gnuplot => splot (pour visualiser)
+splot "./test_interpol.txt" u 1:2:3 with lines

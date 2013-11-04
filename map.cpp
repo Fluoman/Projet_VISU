@@ -1,8 +1,15 @@
 #include "map.h"
-
+#include "point.h"
 map::map()
 {
-    //ctor
+	InitialPoints.push_back(Point(0,0));
+	InitialPoints.push_back(Point(0,4));
+	InitialPoints.push_back(Point(4,0));
+	InitialPoints.push_back(Point(4,4));
+	InitialPoints.push_back(Point(2,2));
+	for (int i=0;i<5;i++) {
+		InitialPoints[i].value.push_back(float(int(i/5)));
+	}
 }
 
 float map::shepard(Point &P, unsigned int i) {
@@ -13,12 +20,16 @@ float map::shepard(Point &P, unsigned int i) {
         float dist = (*it).distance(P);
         float value = (*it).getValue(i);
         if (dist == 0) {
+				P.value.push_back(value);
+				Carte.push_back(P);
                 return value;
         }
         numerator += value/dist;
         denominator += 1/dist;
         it++;
     }
+	P.value.push_back(numerator/denominator);
+	Carte.push_back(P);
     return numerator/denominator;
 
 }
@@ -34,6 +45,8 @@ float map::hardy(Point &P, unsigned int i) {
         res += value*sqrt(dist*dist + c*c);
         it++;
     }
+	P.value.push_back(res);
+	Carte.push_back(P);
     return res; }
 map::~map()
 {
