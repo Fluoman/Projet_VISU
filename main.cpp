@@ -111,6 +111,7 @@ int parser()
 
 int main ()
     {
+        static float DELTA = 100;
         string entree = "test_interpol.txt";
         string sortie = "sortie_interpol.txt";
         static ifstream flux_entree;
@@ -142,9 +143,9 @@ int main ()
             flux_sortie << Carte.InitialPoints[i].getLat() << " " << Carte.InitialPoints[i].getLon() << " " << Carte.InitialPoints[i].value[0] << endl ;
         }
 
-        for (unsigned int num_pointX = 0; num_pointX < 1000 ; num_pointX++) {
-            for (unsigned int num_pointY = 0; num_pointY < 1000 ; num_pointY++) {
-                Point nouveau_point(minX+(maxX-minX)/1000*(float)num_pointX,minY+(maxY-minY)/1000*(float)num_pointY);
+        for (unsigned int num_pointX = 0; num_pointX < DELTA ; num_pointX++) {
+            for (unsigned int num_pointY = 0; num_pointY < DELTA ; num_pointY++) {
+                Point nouveau_point(minX+(maxX-minX)/DELTA*(float)num_pointX,minY+(maxY-minY)/DELTA*(float)num_pointY);
                 Carte.shepard(nouveau_point);
             }
         }
