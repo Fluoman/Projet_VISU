@@ -10,8 +10,10 @@ class map
         float shepard(Point &P, unsigned int i = 0);
         float hardy(Point &P, unsigned int i = 0);
         std::vector<Point> InitialPoints;
-        map();
+		std::vector<std::vector<float> > coeffHardy;
+		map();
         virtual ~map();
+		void computeHardy();
         std::deque<Point> Carte;
     protected:
     private:
