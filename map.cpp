@@ -21,7 +21,6 @@ float map::shepard(Point &P, unsigned int i) {
         float value = (*it).getValue(i);
         if (dist == 0) {
 				P.value.push_back(value);
-				Carte.push_back(P);
                 return value;
         }
         numerator += value/dist;
@@ -29,7 +28,6 @@ float map::shepard(Point &P, unsigned int i) {
         it++;
     }
 	P.value.push_back(numerator/denominator);
-	Carte.push_back(P);
     return numerator/denominator;
 
 }
@@ -46,7 +44,6 @@ float map::hardy(Point &P, unsigned int i) {
         it++;
     }
 	P.value.push_back(res);
-	Carte.push_back(P);
     return res; }
 map::~map()
 {
