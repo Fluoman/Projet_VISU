@@ -1,9 +1,9 @@
 #include "map.h"
 #include "point.h"
 #include <iostream>
-#include <Eigen/Dense>
+//#include <Eigen/Dense>
 using namespace std;
-using namespace Eigen;
+//using namespace Eigen;
 
 map::map()
 {
@@ -35,13 +35,13 @@ float map::shepard(Point &P, unsigned int i) {
 	return numerator/denominator;
 
 }
-void map::computeHardy() {
+void map::computeHardy() {/*
 // Resolution du systeme pour hardy
 // coeffHardy est un vecteur de vecteur coeffs, les coeffs étant dans le meme ordre que les points initiaux
 	float c = 1;
 	int size = InitialPoints.size();
 	for (int k=0;k<InitialPoints[0].value.size();k++) {
-	
+
 		std::vector<float> coeff_i;
 		// Résoudre le systee linéaire pour hardy
 		// Resultat de la résolution dans coeff_i
@@ -58,8 +58,8 @@ void map::computeHardy() {
 			coeff_i.push_back(res(i));
 		}
 		coeffHardy.push_back(coeff_i);
-	}	
-
+	}
+*/
 }
 
 float map::hardy(Point &P, unsigned int i) {

@@ -140,7 +140,7 @@ void recupLigneColonne(const char *NomFich, unsigned int Comptage[2])
 
 int main ()
     {
-        static float DELTA = 10;
+        static float DELTA = 100;
         string entree = "test_interpol.txt";
         string sortie = "sortie_interpol_shepard.txt";
         static ifstream flux_entree;
