@@ -27,3 +27,9 @@ float Point::distance(Point & P) {
      float d = R * c;
      return d;
 }
+
+float Point::distanceEuclidienne(Point & P) {
+
+	return sqrt(pow((self->latitude-P.latitude),2) + pow((self->longitude-P.longitude),2) ); 
+
+}
