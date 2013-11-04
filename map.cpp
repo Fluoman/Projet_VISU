@@ -17,7 +17,7 @@ float map::shepard(Point &P, unsigned int i) {
     float denominator = 0.0;
     std::vector<Point>::iterator it = this->InitialPoints.begin();
     while (it != this->InitialPoints.end()) {
-        float dist = (*it).distance(P);
+        float dist = (*it).distanceEuclidienne(P);
         float value = (*it).getValue(i);
         if (dist == 0) {
 				P.value.push_back(value);
@@ -40,7 +40,7 @@ float map::hardy(Point &P, unsigned int i) {
     float res = 0;
     std::vector<Point>::iterator it = this->InitialPoints.begin();
     while (it != this->InitialPoints.end()) {
-        float dist = (*it).distance(P);
+        float dist = (*it).distanceEuclidienne(P);
         float value = (*it).getValue(i);
         res += value*sqrt(dist*dist + c*c);
         it++;
