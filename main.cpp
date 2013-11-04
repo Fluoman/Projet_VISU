@@ -113,7 +113,7 @@ int main ()
     {
         static float DELTA = 100;
         string entree = "test_interpol.txt";
-        string sortie = "sortie_interpol.txt";
+        string sortie = "sortie_interpol_hardy.txt";
         static ifstream flux_entree;
         static ofstream flux_sortie;
 
@@ -146,7 +146,7 @@ int main ()
         for (unsigned int num_pointX = 0; num_pointX < DELTA ; num_pointX++) {
             for (unsigned int num_pointY = 0; num_pointY < DELTA ; num_pointY++) {
                 Point nouveau_point(minX+(maxX-minX)/DELTA*(float)num_pointX,minY+(maxY-minY)/DELTA*(float)num_pointY);
-                Carte.shepard(nouveau_point);
+                Carte.hardy(nouveau_point);
             }
         }
 
