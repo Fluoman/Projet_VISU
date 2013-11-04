@@ -19,16 +19,23 @@ float map::shepard(Point &P, unsigned int i) {
     while (it != this->InitialPoints.end()) {
         float dist = (*it).distanceEuclidienne(P);
         float value = (*it).getValue(i);
-        if (dist == 0) {
-				P.value.push_back(value);
-                return value;
-        }
-        numerator += value/dist;
-        denominator += 1/dist;
+		if (value != -1) {
+	        if (dist == 0) {
+					P.value.push_back(value);
+	                return value;
+	   	     }
+	        numerator += value/dist;
+ 	       	denominator += 1/dist;
+		}
         it++;
     }
-	P.value.push_back(numerator/denominator);
-    return numerator/denominator;
+	if (denominator != 0) {
+		P.value.push_back(numerator/denominator);
+	} else {
+		P.value.push_back(-1);
+		return -1;
+	}
+	return numerator/denominator;
 
 }
 
@@ -40,8 +47,10 @@ float map::hardy(Point &P, unsigned int i) {
     while (it != this->InitialPoints.end()) {
         float dist = (*it).distanceEuclidienne(P);
         float value = (*it).getValue(i);
-        res += value*sqrt(dist*dist + c*c);
-        it++;
+		if (value != -1) {
+	        res += value*sqrt(dist*dist + c*c);
+		}
+		it++;
     }
 	P.value.push_back(res);
     return res; }
