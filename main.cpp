@@ -139,8 +139,19 @@ int main ()
                 if (Carte.InitialPoints[i].getLon() > maxY)
                     maxY = Carte.InitialPoints[i].getLon();
             }
+            flux_sortie << Carte.InitialPoints[i].getLat() << " " << Carte.InitialPoints[i].getLon() << " " << Carte.InitialPoints[i].value[0] << endl ;
         }
-        cout << "minX; maxX; minY; maxY: " << minX << maxX << minY << maxY << endl;
+
+        for (unsigned int num_pointX = 0; num_pointX < 1000 ; num_pointX++) {
+            for (unsigned int num_pointY = 0; num_pointY < 1000 ; num_pointY++) {
+                Point nouveau_point(minX+(maxX-minX)/1000*(float)num_pointX,minY+(maxY-minY)/1000*(float)num_pointY);
+                Carte.shepard(nouveau_point);
+            }
+        }
+
+        for (unsigned int i = 0; i<Carte.Carte.size(); i++) {
+            flux_sortie << Carte.Carte[i].getLat() << " " << Carte.Carte[i].getLon() << " " << Carte.Carte[i].value[0] << endl ;
+        }
 
         flux_entree.close();
         flux_sortie.close();
